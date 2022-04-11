@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="" style="overflow: hidden"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>galgame_engine</title><link rel="stylesheet" href="static/SystemFile/UserAnimation.css"><script>checkIsMobile=function (){
+            let info = navigator.userAgent;
+            let flag=false
+            let agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];
+            for (let i = 0; i < agents.length; i++) {
+                if (info.indexOf(agents[i]) >= 0) {
+                    flag= true
+                    break
+                }
+            }
+            if (!flag){
+                dynamicLoading.css("static/SystemFile/SystemCss.css")
+                console.log("Loading PC style");
+            }
+            else{
+                dynamicLoading.css("static/SystemFile/SystemMobileCss.css")
+                console.log("Loading mobile style");
+            }
+        }
+        window.onload=function(){
+            checkIsMobile();
+        };
+        let dynamicLoading = {
+            css: function(path){
+                if(!path || path.length === 0){
+                    throw new Error('argument "path" is required !');
+                }
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.href = path;
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                head.appendChild(link);
+            },
+            js: function(path){
+                if(!path || path.length === 0){
+                    throw new Error('argument "path" is required !');
+                }
+                var head = document.getElementsByTagName('head')[0];
+                var script = document.createElement('script');
+                script.src = path;
+                script.type = 'text/javascript';
+                head.appendChild(script);
+            }
+        }</script><link href="/js/about.9156bece.js" rel="prefetch"><link href="/js/app.41d518cb.js" rel="preload" as="script"><link href="/js/chunk-vendors.09dbb4b7.js" rel="preload" as="script"></head><body oncontextmenu="return false" onselectstart="return false" ondragstart="return false"><noscript><strong>抱歉 您的浏览器不支持JavaScript 请开启后刷新操作~</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.09dbb4b7.js"></script><script src="/js/app.41d518cb.js"></script></body></html>

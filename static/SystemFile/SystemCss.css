@@ -1,0 +1,515 @@
+/*配置 不建议修改*/
+* {
+    -webkit-touch-callout: none; /*系统默认菜单被禁用*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -khtml-user-select: none; /*早期浏览器*/
+    -moz-user-select: none; /*火狐*/
+    -ms-user-select: none; /*IE10*/
+    user-select: none;
+}
+/*滚动条 不建议修改*/
+.TextBoardContentBackGround::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.TextBoardContentBackGround::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background:linear-gradient(45deg,#ff000033 0%,#ffb60033 11%,#fff60033 22%,#a5ff0033
+        33%,#00a9ff33 44%,#0400ff33 55%,#8a00fc33 66%,#ff00e933 77%,#ff005933 88%,#ff000033 100%);
+}
+.TextBoardContentBackGround::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    /*-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);*/
+    border-radius: 10px;
+    background: transparent;
+}
+/*字体*/
+@font-face {
+    font-family: 'faBrands';
+    src: url('./font/fa-brands.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'faRegular';
+    src: url('./font/fa-regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'faSolid';
+    src: url('./font/fa-solid.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'faDuotone';
+    src: url('./font/fa-duotone.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'faLight';
+    src: url('./font/fa-light.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+/*主页开始界面 css 样式*/
+/*按钮样式 外层div样式*/
+.homeDiv{
+    text-align: center;
+    position: absolute;
+    width: 99.8%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;  /* column 横向 row竖向*/
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+}
+
+/*主页按钮列表*/
+.homeList{
+    width: 80%;
+}
+/*按钮样式*/
+.buttonStyle{
+    height: 50px;
+}
+.buttonStyle >.el-button{
+    background-color: rgba(153, 152, 152, 0.4);
+    /*margin: 10px;*/
+    width: 40% ;
+    color: white;
+    font-size: 18px;
+    height: 80%;
+    border: transparent 1px solid;
+    border-left: darkcyan 2px solid;
+    border-right: darkcyan 2px solid;
+
+}
+/*鼠标悬浮时样式*/
+.buttonStyle >.el-button:hover{
+    /*border: rgba(153, 152, 152, 0.8);*/
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: white 1px solid;
+    box-shadow:0 0 20px rgba(153, 152, 152, 0.8);
+    transition: box-shadow .3s linear, box-shadow .3s linear;
+}
+/*鼠标获取焦点（点击）时样式*/
+.buttonStyle >.el-button:focus{
+    background-color: rgba(153, 152, 152, 0.4);
+    border: white 1px solid;
+    color: white;
+
+}
+/*文本显示界面*/
+/*文本最外层*/
+.TextBoardMain{
+    padding: 15px 20%;
+    width: 60%;
+    height: 100%;
+}
+/*文本界面背景*/
+.TextBoardBackGround{
+    /*background:linear-gradient(90deg,transparent 3%*/
+        /*,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.3) 80%,transparent 97%);*/
+    background: rgba(255,255,255,0.7);
+    width: 80%;
+    height: 35%;
+    position: absolute;
+    bottom: 0;
+    background-size: 100% 150%;
+    border-radius: 100px 100px 100px 100px;
+    border: rgba(89, 0, 0, 0.7) 2px solid;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+/*放置名称文本的背景*/
+.TextBoardNameBackGround{
+    width: 45%;
+    border-bottom: 2px solid rgba(253, 0, 0, 0.4);
+}
+
+/*文字设置 不建议*/
+.TextBoardNameSpan{
+    letter-spacing: 2px;
+}
+/*放置文字文本的背景*/
+.TextBoardContentBackGround{
+    width: 100%;
+    height: 50%;
+    overflow: auto;
+}
+/*左侧小人物头像*/
+.TextBoardMiniRoleLeft{
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    z-index: 33;
+    border-radius:  0 0 0 125%/100px;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+/*右侧小人物头像*/
+.TextBoardMiniRoleRight{
+    position: absolute;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    z-index: 33;
+    border-radius:  0 0  125%/100px 0;
+    padding-top: 20px;
+    padding-bottom: 2px;
+    overflow: hidden;
+}
+/*顶部控制条*/
+.TextTopControl{
+    height: 20% ;
+    position: absolute;
+    top: 10px;
+    left: 80%;
+    z-index: 40;
+}
+/*文本框上下按钮*/
+.TextUpDown{
+    font-family: element-icons, "Microsoft YaHei", serif !important;
+    font-size: 300%;
+    font-style: unset;
+    color: #b9b9b9;
+    border-radius:10px;
+    transition: all .5s ease-in-out;
+
+}
+.TextTopControl :hover{
+    transition: all .5s ease-in-out;
+    color: rgba(170,170,170);
+    cursor: Pointer;
+    box-shadow:0 0  10px 5px rgba(255,255,255,.8);
+    background-color:rgba(255,255,255,0.5);
+}
+/*文字图标*/
+.TextUpDown::before{
+    content: "\e6df"
+}
+/*底部控制按钮最外层*/
+.TextBottomControl{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 15%;
+    z-index: 44;
+    bottom: 0;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+}
+/*按钮外层div*/
+.TextBottomDiv{
+    height:100%;
+    padding-top:5px;
+    /*transition: all .5s ease-in-out;*/
+}
+/*按钮外层div动画*/
+.TextBottomDiv :hover{
+    cursor: Pointer;
+    box-shadow:0 0 5px 5px rgba(230,230,230,.8);
+    background-color:rgba(255,255,255,.8);
+    width:100px;
+    transition: all .5s ease-in-out;
+}
+/*基础按钮设置*/
+.TextBottomIconBase{
+    font-family: element-icons!important;
+    font-size: 170%;
+    font-style: unset;
+    color: #1e90ff;
+    border-radius:5px;
+    margin:0 5px 0 5px;
+    padding:5px;
+    transition: all .5s ease-in-out;
+}
+/*下层第一个控制按钮 历史记录按钮*/
+.TextBottomIconDoc{}
+.TextBottomIconDoc::before{
+    content:"\e785"
+}
+
+/*下层第二个控制按钮 重放*/
+.TextBottomIconReplay{}
+.TextBottomIconReplay::before{
+    content:"\e6c7"
+}
+/*下层第三个控制按钮 自动播放*/
+.TextBottomIconAutoPlay{}
+.TextBottomIconAutoPlay::before{
+    content:"\e6e0"
+}
+/*下层第四个控制按钮 自动播放x2*/
+.TextBottomIconAutoPlay2{}
+.TextBottomIconAutoPlay2::before{
+    content:"\e6dc"
+}
+/*下层第五个控制按钮 存档*/
+.TextBottomIconSave{
+}
+.TextBottomIconSave::before{
+    content:"\e783"
+}
+/*下层第六个控制按钮 读档*/
+.TextBottomIconLoad{
+}
+.TextBottomIconLoad::before{
+    content:"\e784"
+}
+/*下层第七个控制按钮 设置*/
+.TextBottomIconSet{
+}
+.TextBottomIconSet::before{
+    content:"\e6ca"
+}
+/*下层第八个控制按钮 home*/
+.TextBottomIconHome{
+    font-family: faLight !important;
+}
+.TextBottomIconHome::before{
+    content:"\f80a"
+}
+.TextBottomIconFocus{
+    /*box-shadow:0 0 5px 5px rgba(220,220,220,.8);*/
+    background-color:rgba(255,255,255,.8);
+}
+
+
+
+/*Choose 界面设置最外层*/
+.ChooseHome{
+    display: flex;
+}
+/*Choose界面 列表*/
+.ChooseList{
+    align-self: center;
+    width: 100%;
+}
+/*Choose 界面 项*/
+.ChooseItem{
+    margin: 2% auto;
+    /*background-image: linear-gradient(90deg, rgba(255,255,255,.3) 0,rgba(255,255,255,.8) 45%,rgba(255,255,255,.8) 55%,rgba(255,255,255,.3) 100%);*/
+    background-image: linear-gradient(90deg,rgba(0,0,255,.8),rgba(128, 0, 128,.8));
+    height: 100%;
+    width: 30%;
+    border-radius: 25%/150px;
+    border: rgba(155,155,155,.8) 2px solid;
+    text-align: center;
+    font-size: 170%;
+    color: rgba(255,255,255,.8);
+    line-height: 300%;
+}
+.ChooseItem:hover{
+    background-image: linear-gradient(90deg,rgba(0,0,255,.6),rgba(128, 0, 128,.6));
+}
+
+
+/*独白界面*/
+/*背景*/
+.SoliloquyBackGround{
+    background-color: #00000088;
+}
+/*文字样式*/
+.SoliloquyText{
+    color: white;
+    font-size: 25px;
+    writing-mode: vertical-lr;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+/*设置界面*/
+/*设置样式,背景*/
+.SettingBackground{
+    background-color: rgba(255,255,255,.9);
+}
+/*设置 内容框区域*/
+.SettingContext{
+    background-color:rgba(255,255,255,.8);
+    margin:auto auto;
+    border-radius:3%;
+    background-size:100% 100%;
+    width: 85%;
+    height: 75%;
+}
+/*设置 关闭按钮*/
+.SettingCloseDiv{
+    height:70px;
+    width:100%;
+    text-align:right;
+    margin-top:1%;
+}
+/*设置关闭按钮图标外层div*/
+.SettingCloseIconDiv{
+    width:100%;
+    height:100%;
+}
+/*设置关闭按钮*/
+.SettingCloseIcon{
+    font-family: element-icons!important;
+    font-size: 350%;
+    font-style: unset;
+    color: rgba(152, 0, 0, 0.4);
+    border-radius:50%;
+    margin:5px 5px 0 5px;
+    padding:5px;
+    cursor:pointer;
+    transition: background-color .5s ease-in-out;
+}
+.SettingCloseIcon::before{
+    content:"\e6db"
+}
+.SettingCloseIcon:hover{
+    background-color: rgba(152, 0, 0, 0.2);
+    transition: all .5s ease-in-out;
+}
+/*设置 字体大小的div*/
+.SettingFontSizeDiv{
+    height:70px;
+    line-height:70px;
+    width:100%;
+}
+/*设置字体大小文字的span*/
+.SettingFontSizeSpan{
+    font-size:150%;
+    color:white;
+    margin:5% 1% 5% 5%;
+    background: rgba(152, 0, 0, 0.4);
+    padding:5px;
+    border-radius:10px;
+}
+/*设置 字体大小滑块设置*/
+.SettingFontSizeSlider{
+    width:20%;
+    display: inline-block;
+    height:40%
+}
+/*设置 字体大小右侧输入框*/
+.SettingFontSizeInput {
+    display:inline-block;
+    width:5%
+}
+/*设置 播放速度的div*/
+.SettingPlaySpeedDiv{
+    height:70px;
+    line-height:70px;
+    width:100%;
+}
+/*设置 播放速度文字的span*/
+.SettingPlaySpeedSpan{
+    font-size:150%;
+    color:white;
+    margin:5% 1% 5% 5%;
+    background: rgba(152, 0, 0, 0.4);
+    padding:5px;
+    border-radius:10px;
+}
+/*设置 播放速度滑块设置*/
+.SettingPlaySpeedSlider{
+    width:20%;
+    display: inline-block;
+    height:40%
+}
+/*设置 播放速度右侧输入框*/
+.SettingPlaySpeedInput {
+    display:inline-block;
+    width:5%
+}
+/*文字显示模式*/
+.SettingDisplayModeDiv{
+    height:70px;
+    line-height:70px;
+    width:100%;
+    display:inline-block;
+}
+/*设置 文字显示模式span*/
+.SettingDisplayModeSpan{
+    font-size:150%;
+    color:white;
+    margin:5% 1% 5% 5%;
+    background: rgba(152, 0, 0, 0.4);
+    padding:5px;
+    border-radius:10px;
+}
+.DisplayModeSelect{
+    height:100%;
+    width:10%;
+}
+/*设置 声音的div*/
+.SettingVolumeDiv{
+    height:70px;
+    line-height:70px;
+    width:100%;
+}
+/*设置 声音文字的span*/
+.SettingVolumeSpan{
+    font-size:150%;
+    color:white;
+    margin:5% 1% 5% 5%;
+    background: rgba(152, 0, 0, 0.4);
+    padding:5px;
+    border-radius:10px;
+}
+/*设置 声音滑块设置*/
+.SettingVolumeSlider{
+    width:20%;
+    display: inline-block;
+    height:40%
+}
+/*设置行*/
+.Setting3ButtonDiv{
+    width:100%;
+    margin-left: 4.5%;
+}
+/*设置 导入存档*/
+.SettingImportDiv{
+    display: inline-block;
+    margin:5px;
+}
+.SettingImportButton{
+}
+/*设置 导出存档*/
+.SettingExportDiv{
+    display: inline-block;
+    margin:5px;
+}
+.SettingExportButton{
+}
+/*设置 初始化*/
+.SettingClearAllDiv{
+    display: inline-block;
+    margin:5px;
+}
+.SettingClearAllButton{
+
+}
+/*设置预览div*/
+.SettingViewDiv{
+    height:20%;
+    width:90%;
+    background: rgba(152, 0, 0, 0.4);
+    border-radius:20px;
+    margin:15px auto;
+}
+.SettingViewSpan{
+    font-size:150%;
+    color:white;
+    padding:3%;
+    border-radius:10px;
+}
+.SettingViewContent{
+    width:80%;
+    vertical-align: middle;
+    margin:20px auto;
+}
